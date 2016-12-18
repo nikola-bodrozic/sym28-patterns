@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Task:show{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Task:show page</h1>
+  {% for t in tasks %}
+  	{{ dump(t.task) }}
+  	{{ dump(t.dueDate.date) }}
+  	<hr>
+  {% endfor %}
+{% endblock %}

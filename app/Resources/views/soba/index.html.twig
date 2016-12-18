@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Soba list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imesobe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for soba in sobas %}
+            <tr>
+                <td><a href="{{ path('soba_show', { 'id': soba.id }) }}">{{ soba.id }}</a></td>
+                <td>{{ soba.imesobe }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('soba_show', { 'id': soba.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('soba_edit', { 'id': soba.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('soba_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

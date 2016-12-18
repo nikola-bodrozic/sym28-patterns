@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div>
+            <a href="{{ path('form_add') }}">task</a> | 
+            <a href="{{ path('zgrada_index') }}">zgrada</a> |
+            <a href="{{ path('soba_index') }}">soba</a> |
+            <a href="{{ path('korisnik_login') }}">login</a> |            
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Zgrada list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for zgrada in zgradas %}
+            <tr>
+                <td><a href="{{ path('zgrada_show', { 'id': zgrada.id }) }}">{{ zgrada.id }}</a></td>
+                <td>{{ zgrada.ime }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('zgrada_show', { 'id': zgrada.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('zgrada_edit', { 'id': zgrada.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('zgrada_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

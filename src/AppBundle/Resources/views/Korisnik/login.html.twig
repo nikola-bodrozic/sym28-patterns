@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+{# Send POST data #}
+ {% block body %}
+<form action="{{ path('korisnik_provera')}}" method="POST">
+		<div class="input-group">
+			<input type="text" name="username" class="form-control" placeholder="username" aria-describedby="basic-addon2">
+		</div>
+		<br>
+		<div class="input-group">
+			<input type="password" name="password" class="form-control" placeholder="password" aria-describedby="basic-addon2">
+		</div>
+		<br>
+		<div class="input-group">
+			<button type="submit" name="submit" id="submit"	class="btn btn-success" value="Login">
+				Login
+			</button>
+			<br>
+		</div>
+		<input type="hidden" name="anticsrf" value="934875dkrjtier5684th">
+		<br>
+</form> 
+{% endblock %}

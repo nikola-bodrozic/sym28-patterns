@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <h1>Task creation</h1>
+
+    <form action="{{ path('form_add') }}" method="POST" novalidate>
+        {{ form_row( form.task) }}
+        {{ form_row( form.dueDate) }}
+          <input type="submit" class="btn btn-primary pull-left" value="Register!" />
+        {{ form_rest(form) }}
+	</form>
+
+{% endblock %}
