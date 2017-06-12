@@ -1,4 +1,9 @@
-uzorSym28
-=========
+Symfony patterns
+================
 
-A Symfony project created on December 18, 2016, 5:49 pm.
+- one to many relatioship in zgrada_index route
+- select & checkox in chkbox_index
+- symfony service
+- 
+
+
