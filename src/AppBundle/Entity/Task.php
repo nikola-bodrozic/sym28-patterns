@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Task
@@ -25,6 +26,7 @@ class Task
      * @var string
      *
      * @ORM\Column(name="task", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $task;
 
@@ -35,6 +37,21 @@ class Task
      */
     private $dueDate;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateUpdated", type="datetime")
+     */
+    private $dateUpdated;
+
+    /**
+     * Task constructor.
+     *
+     */
+    public function __construct()
+    {
+        $this->dateUpdated = new \DateTime();
+    }
 
     /**
      * Get id
@@ -90,5 +107,28 @@ class Task
     public function getDueDate()
     {
         return $this->dueDate;
+    }
+
+    /**
+     * Set dateUpdated
+     *
+     * @param \DateTime $dateUpdated
+     * @return Task
+     */
+    public function setDateUpdated($dateUpdated)
+    {
+        $this->dateUpdated = $dateUpdated;
+
+        return $this;
+    }
+
+    /**
+     * Get dateUpdated
+     *
+     * @return \DateTime 
+     */
+    public function getDateUpdated()
+    {
+        return $this->dateUpdated;
     }
 }

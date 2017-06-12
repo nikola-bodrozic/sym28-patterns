@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chkbox list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ime</th>
+                <th>Prvi</th>
+                <th>Drugi</th>
+                <th>Isattending</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chkbox in chkboxes %}
+            <tr>
+                <td><a href="{{ path('chkbox_show', { 'id': chkbox.id }) }}">{{ chkbox.id }}</a></td>
+                <td>{{ chkbox.ime }}</td>
+                <td>{% if chkbox.prvi %}Yes{% else %}No{% endif %}</td>
+                <td>{% if chkbox.drugi %}Yes{% else %}No{% endif %}</td>
+                <td>{{ chkbox.isAttending }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('chkbox_show', { 'id': chkbox.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('chkbox_edit', { 'id': chkbox.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chkbox_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

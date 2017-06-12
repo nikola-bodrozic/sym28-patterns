@@ -5,7 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+//use Symfony\Component\Validator\Constraints\IsTrue;
+//use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 class TaskType extends AbstractType
 {
     /**
@@ -17,6 +18,7 @@ class TaskType extends AbstractType
         $builder
             ->add('task')
             ->add('dueDate', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType')
+            // ->add('termsAccepted', CheckboxType::class, ['mapped' => false, 'constraints' => new IsTrue(),])
         ;
     }
     

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Task;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
@@ -22,6 +23,21 @@ class TaskController extends Controller
             'AppBundle:Task:show.html.twig', 
             ['tasks' => $tasks,]
         );
+    }
+
+    /**
+     * @Route("/symservice", name="sym_service")
+     */
+    public function symserviceAction()
+    {
+        $mailer = $this->get('app.mailer');
+        $mailer->setX(' and I`m from setX method');
+        echo $mailer->getX();
+
+        $tweeter = $this->get('app.tweeter');
+        echo $tweeter->foo();
+
+        die();
     }
 
     /**

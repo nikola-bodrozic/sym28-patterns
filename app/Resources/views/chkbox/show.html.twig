@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chkbox</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chkbox.id }}</td>
+            </tr>
+            <tr>
+                <th>Ime</th>
+                <td>{{ chkbox.ime }}</td>
+            </tr>
+            <tr>
+                <th>Prvi</th>
+                <td>{% if chkbox.prvi %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Drugi</th>
+                <td>{% if chkbox.drugi %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Isattending</th>
+                <td>{{ chkbox.isAttending }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chkbox_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('chkbox_edit', { 'id': chkbox.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

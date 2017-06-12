@@ -3,17 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div>
+    <div class="container">
+        <div class="row">
             <a href="{{ path('form_add') }}">task</a> | 
             <a href="{{ path('zgrada_index') }}">zgrada</a> |
             <a href="{{ path('soba_index') }}">soba</a> |
-            <a href="{{ path('korisnik_login') }}">login</a> |            
+            <a href="{{ path('korisnik_login') }}">login</a> |
+            <a href="{{ path('sym_service') }}">symfony service</a> |
+            <a href="{{ path('chkbox_index') }}">checkbox select</a>
         </div>
+    </div>
+        <div class="container">
+            <div class="row">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+            </div>
+        </div>
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>
